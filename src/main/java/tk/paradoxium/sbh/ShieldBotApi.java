@@ -1,12 +1,12 @@
 package tk.paradoxium.sbh;
 
-import com.sun.istack.internal.logging.Logger;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ShieldBotApi {
 
@@ -85,7 +85,7 @@ public class ShieldBotApi {
 
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Logger.getLogger(ShieldBotApi.class).log(Level.SEVERE, "Exception occurred", e);
+                Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", e);
             }
 
             @Override
@@ -93,10 +93,10 @@ public class ShieldBotApi {
                 try {
                     if(!response.isSuccessful()){
                         String error = response.message();
-                        Logger.getLogger(ShieldBotApi.class).log(Level.SEVERE, "Exception occurred", error);
+                        Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", error);
                     }
                 } catch (Exception e){
-                    Logger.getLogger(ShieldBotApi.class).log(Level.SEVERE, "Exception occurred", e);
+                    Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", e);
                 } finally {
                     response.body().close();
                 }
