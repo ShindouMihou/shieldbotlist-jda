@@ -22,7 +22,7 @@ public class ShieldBotApi {
     /**
      * Used to create the Shield Bot API class.
      * @param token The token you receive from ShieldBotList.tk (not from Discord).
-     * @param botId Your bot client ID, can be found on developer portal on Discord.
+     * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com).
      */
     public ShieldBotApi(String token, String botId) {
         this.url = new HttpUrl.Builder()
@@ -43,7 +43,7 @@ public class ShieldBotApi {
     /**
      * Used to create the Shield Bot API class.
      * @param token The token you receive from ShieldBotList.tk (not from Discord).
-     * @param botId Your bot client ID, can be found on developer portal on Discord.
+     * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com).
      */
     public ShieldBotApi(String token, Long botId) {
         this.url = new HttpUrl.Builder()
