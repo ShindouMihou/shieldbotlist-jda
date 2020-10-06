@@ -10,7 +10,7 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 1.) Add the jitpack.io repository.
 
 ```
-<repositories>
+	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
 		    <url>https://jitpack.io</url>
@@ -21,7 +21,7 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 2.) Add the dependency.
 
 ```
-<dependency>
+	<dependency>
 	    <groupId>com.github.ShindouMihou</groupId>
 	    <artifactId>shieldbotlist</artifactId>
 	    <version>v1.0</version>
@@ -33,7 +33,7 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 1.) Add it in your root build.gradle at the end of repositories:
 
 ```
-allprojects {
+	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
@@ -44,7 +44,7 @@ allprojects {
 2.) Add the dependency
 
 ```
-dependencies {
+	dependencies {
 	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0'
 	}
 ```
