@@ -1,15 +1,13 @@
 package tk.paradoxium.sbh.entities;
 
-import tk.paradoxium.sbh.ShieldBotApi;
-
 public class ErrorHandler {
 
     /*
      * Will be used in the future when the API starts sending actual error messages instead of 404s.
      */
 
-    String error;
-    String success;
+    private String error;
+    private String success;
 
     public String getError() {
         return error;
