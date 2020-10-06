@@ -1,107 +1,57 @@
 package tk.paradoxium.sbh;
 
-import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
+public interface ShieldBotApi {
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+    void setServerCount(int serverCount);
 
-public class ShieldBotApi {
+    class Builder {
 
-    /*
-    The builder for the API, contains all the settings.
-    For example: authorization key and etc.
-    Feel free to change it to your liking, this is only temporary.
-     */
+        /* Required **/
+        private Long botId = null;
+        private String token = null;
 
-    private final HttpUrl url;
-    private final OkHttpClient client;
+        /**
+         * Sets the token for the API, please use one from shieldbotlist.tk, not from Discord itself.
+         * @param token The token from shieldbotlist.tk.
+         * @return Builder
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
 
-    /**
-     * Used to create the Shield Bot API class.
-     * @param token The token you receive from ShieldBotList.tk (not from Discord).
-     * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com/developers).
-     */
-    public ShieldBotApi(String token, String botId) {
-        this.url = new HttpUrl.Builder()
-                .scheme("http")
-                .host("shieldbotlist.tk")
-                .addPathSegment("api")
-                .addPathSegment("auth")
-                .addPathSegment("stats")
-                .addPathSegment(botId)
-                .build();
-        this.client = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request request = chain.request().newBuilder().addHeader("authorization", token).build();
-                    return chain.proceed(request);
-                }).build();
-    }
+        /**
+         * Sets the bot ID for the API, please use the one from discordapp.com/developers.
+         * @param botId The bot ID from discordapp.com/developers.
+         * @return Builder
+         */
+        public Builder botId(String botId) {
+            this.botId = Long.parseLong(botId);
+            return this;
+        }
 
-    /**
-     * Used to create the Shield Bot API class.
-     * @param token The token you receive from ShieldBotList.tk (not from Discord).
-     * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com/developers).
-     */
-    public ShieldBotApi(String token, Long botId) {
-        this.url = new HttpUrl.Builder()
-                .scheme("http")
-                .host("shieldbotlist.tk")
-                .addPathSegment("api")
-                .addPathSegment("auth")
-                .addPathSegment("stats")
-                .addPathSegment(botId.toString())
-                .build();
-        this.client = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request request = chain.request().newBuilder().addHeader("authorization", token).build();
-                    return chain.proceed(request);
-                }).build();
-    }
+        /**
+         * Sets the bot ID for the API, please use the one from discordapp.com/developers.
+         * @param botId The bot ID from discordapp.com/developers.
+         * @return Builder
+         */
+        public Builder botId(long botId) {
+            this.botId = botId;
+            return this;
+        }
 
-    /**
-     * Sets the server count value, immediately updates to Shield Bot List.
-     * @param count The server count value.
-     */
-    public void setServerCount(int count){
-        JSONObject object = new JSONObject().put("server_count", count);
-        send(object);
-    }
+        /**
+         * Builds the method.
+         * @return ShieldBotAPI
+         */
+        public ShieldBotApi build() {
+            if (token == null || token == "")
+                throw new IllegalArgumentException("Token is null, please fetch one from shieldbotlist.tk");
+            if (botId == null)
+                throw new IllegalArgumentException("The bot ID is null, please fetch one from discordapp.com/developers");
 
-    /**
-     * Sends to ShieldBotList the entire request.
-     * @param body The body.
-     */
-    private void send(JSONObject body){
-        MediaType JSON = MediaType.parse("application/json");
-        RequestBody x = RequestBody.create(body.toString(), JSON);
-        Request request = new Request.Builder()
-                .post(x).url(url).build();
-
-        Call caller = client.newCall(request);
-        caller.enqueue(new Callback() {
-
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", e);
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) {
-                try {
-                    if(!response.isSuccessful()){
-                        String error = response.message();
-                        Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", error);
-                    }
-                } catch (Exception e){
-                    Logger.getLogger(ShieldBotApi.class.getName()).log(Level.SEVERE, "Exception occurred", e);
-                } finally {
-                    response.body().close();
-                }
-            }
-        });
+            return new ShieldBotApiImpl(token, botId);
+        }
     }
 
 }
