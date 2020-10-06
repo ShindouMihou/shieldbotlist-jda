@@ -1,6 +1,7 @@
 package tk.paradoxium.sbh;
 
 import okhttp3.*;
+import org.javacord.api.DiscordApi;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -66,6 +67,15 @@ public class ShieldBotApiImpl implements ShieldBotApi{
      */
     public void setServerCount(int count){
         JSONObject object = new JSONObject().put("server_count", count);
+        send(object);
+    }
+
+    /**
+     * Javacord Version, DEVELOPMENT SNAPSHOT
+     * @param api
+     */
+    public void pushServerCount(DiscordApi api){
+        JSONObject object = new JSONObject().put("server_count", api.getServers().size());
         send(object);
     }
 
