@@ -5,6 +5,9 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 
 ### How to install?
 
+Follow the instructions provided on:
+https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
+
 #### Maven
 
 1.) Add the jitpack.io repository.
