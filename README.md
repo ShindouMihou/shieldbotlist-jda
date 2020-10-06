@@ -6,7 +6,7 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 ### How to install?
 
 Follow the instructions provided on:
-https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
+https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0.1
 
 #### Maven
 
@@ -27,7 +27,7 @@ https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
 	<dependency>
 	    <groupId>com.github.ShindouMihou</groupId>
 	    <artifactId>shieldbotlist</artifactId>
-	    <version>v1.0</version>
+	    <version>v1.0.1</version>
 	</dependency>
 ```
 
@@ -48,7 +48,7 @@ https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
 
 ```
 	dependencies {
-	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0'
+	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0.1'
 	}
 ```
   
