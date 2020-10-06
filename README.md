@@ -45,7 +45,7 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.ShindouMihou:shieldbotlist:Tag'
+	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0'
 	}
 ```
   
