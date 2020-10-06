@@ -45,9 +45,9 @@ public interface ShieldBotApi {
          * @return ShieldBotAPI
          */
         public ShieldBotApi build() {
-            if (token.equals(null) || token.equals(""))
+            if (token == null || token.equals(""))
                 throw new IllegalArgumentException("Token is null, please fetch one from shieldbotlist.tk");
-            if (botId.equals(null))
+            if (botId == null)
                 throw new IllegalArgumentException("The bot ID is null, please fetch one from discordapp.com/developers");
 
             return new ShieldBotApiImpl(token, botId);
