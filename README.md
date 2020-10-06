@@ -55,15 +55,17 @@ https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
 ### How to use:
 
 ```
-ShieldBotApi sbh = new ShieldBotApi("token", clientID);
-sbh.setServerCount(int)
+        ShieldBotApi api = new ShieldBotApi.Builder().token("token").botId("botId").build();
+        api.setServerCount(int);
 ```
 
 Replace int with the server count, choose how you like, for example in Javacord:
 
 ```
 public void setupSBH(DiscordApi bot, String token, long clientID) {
-    ShieldBotApi sbh = new ShieldBotApi("token", clientID);
-    sbh.setServerCount(bot.getServers().size());
+        ShieldBotApi api = new ShieldBotApi.Builder().token("token").botId("botId").build();
+        api.setServerCount(event.getApi().getServers().size());
     }
 ```
+
+How I personally use this is store it the entire thing on a Values class then retrieve the API from a TimerTask to update every 30 minutes.
