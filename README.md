@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/ShindouMihou/shieldbotlist.svg)](https://jitpack.io/#ShindouMihou/shieldbotlist)
+[![](https://jitpack.io/v/ShindouMihou/shieldbotlist.svg)](https://jitpack.io/#ShindouMihou/shieldbotlist) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2dcc194334cf4777908449549afac20c)](https://www.codacy.com/gh/ShindouMihou/shieldbotlist/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ShindouMihou/shieldbotlist&amp;utm_campaign=Badge_Grade)
 # Shield Bot List API (for Java)
 This is an unofficial API built for Java users, feel free to improve it as much as you like.
 It will be maintained by me for the meantime, but I will be accepting pull requests if ever there is a need for one.
