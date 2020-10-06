@@ -6,7 +6,7 @@ It will be maintained by me for the meantime, but I will be accepting pull reque
 ### How to install?
 
 Follow the instructions provided on:
-https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
+https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0.1
 
 #### Maven
 
@@ -27,7 +27,7 @@ https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
 	<dependency>
 	    <groupId>com.github.ShindouMihou</groupId>
 	    <artifactId>shieldbotlist</artifactId>
-	    <version>v1.0</version>
+	    <version>v1.0.1</version>
 	</dependency>
 ```
 
@@ -48,22 +48,24 @@ https://jitpack.io/#ShindouMihou/shieldbotlist/v1.0
 
 ```
 	dependencies {
-	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0'
+	        implementation 'com.github.ShindouMihou:shieldbotlist:v1.0.1'
 	}
 ```
   
 ### How to use:
 
 ```
-ShieldBotApi sbh = new ShieldBotApi("token", clientID);
-sbh.setServerCount(int)
+        ShieldBotApi api = new ShieldBotApi.Builder().token("token").botId("botId").build();
+        api.setServerCount(int);
 ```
 
 Replace int with the server count, choose how you like, for example in Javacord:
 
 ```
 public void setupSBH(DiscordApi bot, String token, long clientID) {
-    ShieldBotApi sbh = new ShieldBotApi("token", clientID);
-    sbh.setServerCount(bot.getServers().size());
+        ShieldBotApi api = new ShieldBotApi.Builder().token("token").botId("botId").build();
+        api.setServerCount(event.getApi().getServers().size());
     }
 ```
+
+How I personally use this is store it the entire thing on a Values class then retrieve the API from a TimerTask to update every 30 minutes.
