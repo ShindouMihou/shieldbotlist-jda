@@ -1,5 +1,7 @@
 package tk.paradoxium.sbh.entities;
 
+import tk.paradoxium.sbh.ShieldBotApi;
+
 public class ErrorHandler {
 
     /*
