@@ -30,27 +30,6 @@ public class ShieldBotApiImpl implements ShieldBotApi {
      * @param token The token you receive from ShieldBotList.tk (not from Discord).
      * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com/developers).
      */
-    public ShieldBotApiImpl(String token, String botId) {
-        this.url = new HttpUrl.Builder()
-                .scheme("https")
-                .host("shieldbotlist.tk")
-                .addPathSegment("api")
-                .addPathSegment("auth")
-                .addPathSegment("stats")
-                .addPathSegment(botId)
-                .build();
-        this.client = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request request = chain.request().newBuilder().addHeader("authorization", token).build();
-                    return chain.proceed(request);
-                }).build();
-    }
-
-    /**
-     * Used to create the Shield Bot API class.
-     * @param token The token you receive from ShieldBotList.tk (not from Discord).
-     * @param botId Your bot client ID, can be found on developer portal on Discord (discordapp.com/developers).
-     */
     public ShieldBotApiImpl(String token, Long botId) {
         this.url = new HttpUrl.Builder()
                 .scheme("https")
@@ -109,8 +88,10 @@ public class ShieldBotApiImpl implements ShieldBotApi {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) {
                 try {
-                    if(response.isSuccessful()){
-                        Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.INFO, "Response has been sent succesfully");
+                    if(!response.isSuccessful()){
+                        /* I don't know what to do here, leave it there for now **/
+                        Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.SEVERE, "Exception occurred, this could be caused by server being offline, cancellation, a connectivity problem or timeout. " +
+                                "It is possible that the remote server accepted the request before the failure.");
                     }
                 } catch (Exception e){
                     Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.SEVERE, "Exception occurred", e);
