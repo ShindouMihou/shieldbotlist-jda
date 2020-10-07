@@ -109,13 +109,8 @@ public class ShieldBotApiImpl implements ShieldBotApi {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) {
                 try {
-                    if(!response.isSuccessful() || response.message().isEmpty()){
-                        try {
-                            JSONObject body = new JSONObject(response.body().string());
-                            Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.SEVERE, "Exception occurred", body.getString("error"));
-                        } catch (Exception e){
-                            Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.SEVERE, "Exception occurred", e);
-                        }
+                    if(response.isSuccessful()){
+                        Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.INFO, "Response has been sent succesfully");
                     }
                 } catch (Exception e){
                     Logger.getLogger(ShieldBotApiImpl.class.getName()).log(Level.SEVERE, "Exception occurred", e);
