@@ -21,11 +21,6 @@ public class ShieldBotApiImpl implements ShieldBotApi {
     - Shindou Mihou.
      */
 
-
-    // Cooldown checking variables.
-    private final long cooldownTime = 30L;
-    private long cooldown;
-
     // Required variables.
     private final HttpUrl url;
     private final OkHttpClient client;
@@ -73,14 +68,6 @@ public class ShieldBotApiImpl implements ShieldBotApi {
     }
 
     /**
-     * Checks if the command is still on cooldown.
-     * @return boolean
-     */
-    private boolean isCooldown(){
-        return (cooldown/1000)+cooldownTime - (System.currentTimeMillis()/1000) <= 0;
-    }
-
-    /**
      * Sets the server count for the bot, this will automatically get the server size from Javacord.
      * For security reasons, the API will automatically fetch the server count for you (api.getServers().size()).
      * Please use after a minimum of 30 seconds per request, otherwise it will return an exception.
@@ -89,11 +76,8 @@ public class ShieldBotApiImpl implements ShieldBotApi {
     public void setServerCount(DiscordApi api){
         if(api == null)
             throw new IllegalArgumentException("API is null, are you sure you are using the proper library?");
-        if(isCooldown())
-            throw new IllegalArgumentException("You are still under cooldown, please wait a minimum of 30 seconds every call.");
 
         JSONObject object = new JSONObject().put("server_count", api.getServers().size());
-        cooldown = System.currentTimeMillis();
         send(object);
     }
 
