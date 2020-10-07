@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>tk.paradoxium</groupId>
-    <artifactId>ShieldBotList-API</artifactId>
-    <version>1.0.2-DEVELOPMENT</version>
+    <artifactId>ShieldBotList-API-Javacord</artifactId>
+    <version>v1.0.2</version>
     <packaging>jar</packaging>
     <description>An library used to set your server count on Shield Bot List.</description>
     <properties>

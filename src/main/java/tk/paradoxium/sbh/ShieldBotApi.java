@@ -1,15 +1,18 @@
 package tk.paradoxium.sbh;
 
 import org.javacord.api.DiscordApi;
+import tk.paradoxium.sbh.impl.ShieldBotApiImpl;
 
 public interface ShieldBotApi {
 
-    void setServerCount(int serverCount);
-    void pushServerCount(DiscordApi api);
+    void setServerCount(DiscordApi api);
 
     class Builder {
 
-        /* Required **/
+        /*
+        Please do not make any unnecessary modifications to these variables.
+        They are null for a reason.
+         */
         private Long botId = null;
         private String token = null;
 
