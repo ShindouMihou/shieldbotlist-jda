@@ -5,6 +5,12 @@ import tk.paradoxium.sbh.impl.ShieldBotApiImpl;
 
 public interface ShieldBotApi {
 
+    /**
+     * Sets the server count for the bot, this will automatically get the server size from Javacord.
+     * For security reasons, the API will automatically fetch the server count for you (api.getServers().size()).
+     * Please use after a minimum of 30 seconds per request, otherwise it will return an exception.
+     * @param api The Discord API.
+     */
     void setServerCount(DiscordApi api);
 
     class Builder {
