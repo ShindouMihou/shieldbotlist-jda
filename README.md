@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/ShindouMihou/shieldbotlist-discord4j.svg)](https://jitpack.io/#ShindouMihou/shieldbotlist-discord4j)
+[![](https://jitpack.io/v/ShindouMihou/shieldbotlist-jda.svg)](https://jitpack.io/#ShindouMihou/shieldbotlist-jda)
 # Shield Bot List API (for Java)
 This is an unofficial API built for Java users, feel free to improve it as much as you like.
 It will be maintained by me for the meantime, but I will be accepting pull requests if ever there is a need for one.
