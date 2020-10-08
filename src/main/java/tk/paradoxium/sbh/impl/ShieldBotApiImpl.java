@@ -1,7 +1,7 @@
 package tk.paradoxium.sbh.impl;
 
+import discord4j.core.DiscordClient;
 import okhttp3.*;
-import org.javacord.api.DiscordApi;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 import tk.paradoxium.sbh.ShieldBotApi;
@@ -47,16 +47,15 @@ public class ShieldBotApiImpl implements ShieldBotApi {
     }
 
     /**
-     * Sets the server count for the bot, this will automatically get the server size from Javacord.
+     * Sets the server count for the bot, this will automatically get the server size from Discord4j.
      * For security reasons, the API will automatically fetch the server count for you (api.getServers().size()).
      * Please use after a minimum of 30 seconds per request, otherwise it will return an exception.
      * @param api The Discord API.
      */
-    public void setServerCount(DiscordApi api){
+    public void setServerCount(DiscordClient api){
         if(api == null)
             throw new IllegalArgumentException("API is null, are you sure you are using the proper library?");
-
-        JSONObject object = new JSONObject().put("server_count", api.getServers().size());
+        JSONObject object = new JSONObject().put("server_count", api.getGuilds().collectList().block().size());
         send(object);
     }
 

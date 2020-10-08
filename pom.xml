@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>tk.paradoxium</groupId>
-    <artifactId>ShieldBotList-API-javacord</artifactId>
+    <artifactId>ShieldBotList-API-discord4j</artifactId>
     <version>v1.0.2</version>
     <packaging>jar</packaging>
     <description>An library used to set your server count on Shield Bot List.</description>
@@ -34,8 +34,8 @@
             <version>4.9.0</version>
         </dependency>
         <dependency>
-            <groupId>org.javacord</groupId>
-            <artifactId>javacord-api</artifactId>
+            <groupId>com.discord4j</groupId>
+            <artifactId>discord4j-core</artifactId>
             <version>3.1.1</version>
         </dependency>
         <dependency>
