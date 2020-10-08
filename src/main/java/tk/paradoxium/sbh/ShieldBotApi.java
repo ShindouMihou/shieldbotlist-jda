@@ -1,18 +1,18 @@
 package tk.paradoxium.sbh;
 
-import discord4j.core.DiscordClient;
+import net.dv8tion.jda.api.JDA;
 import tk.paradoxium.sbh.impl.ShieldBotApiImpl;
 
 public interface ShieldBotApi {
 
     /**
-     * Sets the server count for the bot, this will automatically get the server size from Discord4j.
+     * Sets the server count for the bot, this will automatically get the server size from JDA.
      * For security reasons, the API will automatically fetch the server count for you (api.getServers().size()).
      * Please use after a minimum of 30 seconds per request, otherwise it will return an exception.
      * Documentations can be found https://docs.paradoxium.tk
      * @param api The Discord API.
      */
-    void setServerCount(DiscordClient api);
+    void setServerCount(JDA api);
 
     class Builder {
 

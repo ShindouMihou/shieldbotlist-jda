@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>tk.paradoxium</groupId>
-    <artifactId>ShieldBotList-API-discord4j</artifactId>
+    <artifactId>ShieldBotList-API-JDA</artifactId>
     <version>v1.0.2</version>
     <packaging>jar</packaging>
     <description>An library used to set your server count on Shield Bot List.</description>
@@ -27,6 +27,13 @@
         <distribution>repo</distribution>
     </license>
     </licenses>
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter-bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -34,9 +41,9 @@
             <version>4.9.0</version>
         </dependency>
         <dependency>
-            <groupId>com.discord4j</groupId>
-            <artifactId>discord4j-core</artifactId>
-            <version>3.1.1</version>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>4.2.0_208</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
